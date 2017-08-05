@@ -23,16 +23,17 @@ let CommentsWidget = createReactClass({
             <div id="commentsWidget">
                 <h1>Comments</h1>
                 <div id="commentsWidgetList">
-                    {this.renderComment('First comment here')}
+                    {this.renderSingleComment('First comment here')}
                 </div>
                 <form id="commentsWidgetForm" onSubmit={this.handleSubmit}>
                     <div className="form-group">
                         <textarea id="comment" placeholder="Type your comment"
                                   value={this.state.inputValue}
-                                  onChange={this.updateInputValue}/>
+                                  onChange={this.updateInputValue}
+                                  onKeyPress={this.handleKeyPress}/>
                     </div>
                     <div className="form-group submitGroup">
-                        <span className="toggleSubmitHotKey">Press <strong className="hotkey">ctrl+enter</strong> to send</span>
+                        <span className="toggleSubmitHotKey" onClick={this.changeSubmitHotkey}>Press <strong className="hotkey">ctrl+enter</strong> to send</span>
                         <input type="submit" value="Post"/>
                     </div>
                 </form>
@@ -40,7 +41,11 @@ let CommentsWidget = createReactClass({
         );
     },
 
-    renderComment: function (commentText) {
+    changeSubmitHotkey: function (event) {
+
+    },
+
+    renderSingleComment: function (commentText) {
         return <Comment value={commentText} />;
     },
 
@@ -50,9 +55,15 @@ let CommentsWidget = createReactClass({
 
     handleSubmit: function(event) {
         event.preventDefault();
-        console.log(this.state.inputValue);
-        this.renderComment(this.state.inputValue);
+        // console.log(this.state.inputValue);
+        this.renderSingleComment(this.state.inputValue);
     },
+
+    handleKeyPress(event) {
+        if (event.charCode === 13) {
+            this.handleSubmit(event);
+        }
+    }
 });
 
 // ========================================
