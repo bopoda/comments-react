@@ -1,0 +1,41 @@
+#commentsWidget {
+    margin: 0 auto;
+    max-width: 550px;
+    padding-bottom: 80px;
+}
+
+#commentsWidget textarea {
+    width:100%;
+    height:80px;
+    margin: 20px 2px;
+    padding:5px 0 5px 5px;
+}
+
+#commentsWidgetList  {
+    float:right;
+    max-width: 60%;
+}
+
+#commentsWidgetList .comment-row {
+    overflow:hidden;
+    text-overflow: ellipsis;
+    white-space: pre-wrap;
+    background-color: #e8fffd;
+    padding:5px 10px;
+    display: block;
+    clear: both;
+    margin:15px 0;
+}
+
+#commentsWidget .submitGroup {
+    float:right;
+}
+
+#commentsWidget .toggleSubmitHotKey {
+    margin-right:20px;
+}
+
+#commentsWidgetForm {
+    padding-top:50px;
+}
+
